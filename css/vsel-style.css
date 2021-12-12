@@ -1,0 +1,95 @@
+/* For reference only - plugin loads the minified CSS file */
+
+/* Flying Bird stylesheet */
+
+/* Container for list of events when using shortcode or widget */
+#vsel {clear:both;}
+#vsel:after {content:''; display:block; height:0; clear:both;}
+.vsel-container {}
+
+/* Container for single event */
+.vsel-content {}
+.vsel-content:after {content:''; display:block; height:0; clear:both;}
+
+/* Container for single event when using shortcode or widget */
+#vsel .vsel-content {margin:0 0 20px; padding:0 0 20px; border-bottom:1px solid #ccc;}
+
+/* Misc */
+.vsel-content h3.vsel-meta-title {margin:0 0 10px; padding:0; font-size:1.2em;}
+.vsel-content p {margin:0 0 10px; padding:0;}
+.vsel-content p:last-of-type {margin-bottom:0;}
+
+/* Meta section */
+.vsel-meta-left {width:36%; float:left;}
+.vsel-meta-right {width:36%; float:right;}
+.vsel-meta-full {}
+.vsel-meta-left > div, .vsel-meta-right > div, .vsel-meta-full > div {margin:0 0 10px;}
+.vsel-meta-left > div:last-of-type, .vsel-meta-right > div:last-of-type, .vsel-meta-full > div:last-of-type {margin-bottom:0;}
+.vsel-meta-title {clear:both;}
+.vsel-meta-date {}
+.vsel-meta-start-date {}
+.vsel-meta-end-date {}
+.vsel-meta-combined-date {}
+.vsel-meta-single-date {}
+.vsel-meta-error-date {font-weight:bold;}
+.vsel-meta-time {}
+.vsel-meta-location {}
+.vsel-meta-link {}
+.vsel-meta-cats {}
+.acf-field-error {font-weight:bold;} 
+
+/* Meta section date icon */
+.vsel-meta-date-icon {margin:0 0 10px; line-height:1.5;}
+.vsel-start-icon, .vsel-end-icon {display:inline-block; margin:0 10px 0 0; background:#f8f8f8; color:#333; text-align:center;}
+.vsel-day, .vsel-month, .vsel-year {display:block; padding:2px 15px;}
+.vsel-year {font-size:0.8em;}
+.vsel-day-top, .vsel-month-top {background:#333; color:#fff;}
+
+/* Meta section combine date icon and title */
+.vsel-meta-combine {}
+.vsel-meta-combine:after {content:''; display:block; height:0; clear:both;}
+.vsel-meta-combine .vsel-meta-date-icon {float:left;}
+.vsel-meta-combine .vsel-meta-title {clear:none;}
+
+/* Event info section */
+.vsel-image-info-left {width:60%; float:left;}
+.vsel-image-info-right {width:60%; float:right;}
+.vsel-content .vsel-image-left {max-width:40%; height:auto; float:left; margin:5px 10px 5px 0; padding:0; border:0;}
+.vsel-content .vsel-image-right {max-width:40%; height:auto; float:right; margin:5px 0 5px 10px; padding:0; border:0;}
+.vsel-info {}
+
+/* Navigation */
+.vsel-nav {clear:both;}
+.vsel-nav:after {content:''; display:block; height:0; clear:both;}
+.vsel-nav a.next {float:right;}
+.vsel-nav a.prev {float:left;}
+
+/* No events notification */
+.vsel-no-events {margin:0; padding:0 0 20px;}
+
+/* Widget */
+.vsel-widget {}
+.vsel-widget:after {content:''; display:block; height:0; clear:both;}
+
+/* Widget text above list */
+.vsel-widget-text {margin:0 0 20px;}
+.vsel-widget-text p {margin:0 0 10px; padding:0;}
+.vsel-widget-text p:last-of-type {margin-bottom:0;}
+
+/* Widget meta section */
+.vsel-widget .vsel-meta-left {width:100%; clear:both; margin:0 0 20px;}
+
+/* Widget event info section */
+.vsel-widget .vsel-image-info-left {width:100%; clear:both;}
+
+/* Widget link to all events */
+.vsel-widget .vsel-widget-link {}
+
+/* Mobile */
+@media screen and (max-width:767px) {
+	/* Meta section */
+	.vsel-meta-left, .vsel-meta-right {width:100% !important; clear:both; float:left; margin:0 0 20px;}
+
+	/* Event info section */
+	.vsel-image-info-left, .vsel-image-info-right {width:100% !important; clear:both; float:left;}
+}
