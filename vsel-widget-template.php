@@ -35,7 +35,7 @@ $output .= '<div id="event-'.get_the_ID().'" class="vsel-content'.vsel_event_cat
 		if ( ($widget_date_hide != 'yes') ) {
 			if ( empty($start_date) || empty($end_date) || ($start_date > $end_date) ) {
 				$output .= '<div class="vsel-meta-date vsel-meta-error-date">';
-				$output .= esc_attr__( 'Error: please reset date.', 'flying-bird' );
+				$output .= esc_attr__( 'Erreur : réinitialiser la date', 'flying-bird' );
 				$output .= '</div>';
 			} elseif ($end_date > $start_date) {
 				if ( ($widget_show_icon == 'yes') ) {

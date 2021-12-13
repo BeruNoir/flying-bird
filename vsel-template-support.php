@@ -20,7 +20,7 @@ function vsel_single_content( $content ) {
 				if ( ($single_date_hide != 'yes') ) {
 					if ( empty($start_date) || empty($end_date) || ($start_date > $end_date) ) {
 						$output .= '<div class="vsel-meta-date vsel-meta-error-date">';
-						$output .= esc_attr__( 'Error: please reset date.', 'flying-bird' );
+						$output .= esc_attr__( 'Erreur : réinitialiser la date.', 'flying-bird' );
 						$output .= '</div>';
 					} elseif ($end_date > $start_date) {
 						if ( ($single_show_icon == 'yes') ) {
@@ -152,7 +152,7 @@ function vsel_archive_content( $content ) {
 				if ( ($page_date_hide != 'yes') ) {
 					if ( empty($start_date) || empty($end_date) || ($start_date > $end_date) ) {
 						$output .= '<div class="vsel-meta-date vsel-meta-error-date">';
-						$output .= esc_attr__( 'Error: please reset date.', 'flying-bird' );
+						$output .= esc_attr__( 'Erreur : réinitialiser la date.', 'flying-bird' );
 						$output .= '</div>';
 					} elseif ($end_date > $start_date) {
 						if ( ($page_show_icon == 'yes') ) {
@@ -302,7 +302,7 @@ function vsel_archive_excerpt( $excerpt ) {
 				if ( ($page_date_hide != 'yes') ) {
 					if ( empty($start_date) || empty($end_date) || ($start_date > $end_date) ) {
 						$output .= '<div class="vsel-meta-date vsel-meta-error-date">';
-						$output .= esc_attr__( 'Error: please reset date.', 'flying-bird' );
+						$output .= esc_attr__( 'Erreur : réinitialiser la date.', 'flying-bird' );
 						$output .= '</div>';
 					} elseif ($end_date > $start_date) {
 						if ( ($page_show_icon == 'yes') ) {

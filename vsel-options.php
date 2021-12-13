@@ -51,10 +51,10 @@ function vsel_admin_init() {
 	add_settings_field( 'vsel-field-39', esc_attr__( 'Évènement unique', 'flying-bird' ), 'vsel_field_callback_39', 'vsel-general', 'vsel-general-section' );
 	register_setting( 'vsel-general-options', 'vsel-setting-39', array('sanitize_callback' => 'sanitize_key') );
 
-	add_settings_field( 'vsel-field-48', esc_attr__( 'Post Type Archive', 'flying-bird' ), 'vsel_field_callback_48', 'vsel-general', 'vsel-general-section' );
+	add_settings_field( 'vsel-field-48', esc_attr__( 'Archive des types d\'évènements', 'flying-bird' ), 'vsel_field_callback_48', 'vsel-general', 'vsel-general-section' );
 	register_setting( 'vsel-general-options', 'vsel-setting-48', array('sanitize_callback' => 'sanitize_key') );	
 
-	add_settings_field( 'vsel-field-43', esc_attr__( 'Post Type Archive', 'flying-bird' ), 'vsel_field_callback_43', 'vsel-general', 'vsel-general-section' );
+	add_settings_field( 'vsel-field-43', esc_attr__( 'Archive des types d\'évènements', 'flying-bird' ), 'vsel_field_callback_43', 'vsel-general', 'vsel-general-section' );
 	register_setting( 'vsel-general-options', 'vsel-setting-43', array('sanitize_callback' => 'sanitize_key') );
 
 	add_settings_field( 'vsel-field-40', esc_attr__( 'Catégorie de l\'évènement', 'flying-bird' ), 'vsel_field_callback_40', 'vsel-general', 'vsel-general-section' );
@@ -75,7 +75,7 @@ function vsel_admin_init() {
 	add_settings_field( 'vsel-field-66', esc_attr__( 'Meta', 'flying-bird' ), 'vsel_field_callback_66', 'vsel-page', 'vsel-page-section' );
 	register_setting( 'vsel-page-options', 'vsel-setting-66', array('sanitize_callback' => 'sanitize_text_field') );
 
-	add_settings_field( 'vsel-field-35', esc_attr__( 'Meta de l\'évènement', 'flying-bird' ), 'vsel_field_callback_35', 'vsel-page', 'vsel-page-section' );
+	add_settings_field( 'vsel-field-35', esc_attr__( 'Meta de vos évènements', 'flying-bird' ), 'vsel_field_callback_35', 'vsel-page', 'vsel-page-section' );
 	register_setting( 'vsel-page-options', 'vsel-setting-35', array('sanitize_callback' => 'sanitize_key') );
 
 	add_settings_field( 'vsel-field-59', esc_attr__( 'Titre', 'flying-bird' ), 'vsel_field_callback_59', 'vsel-page', 'vsel-page-section' );
@@ -293,14 +293,14 @@ add_action( 'admin_init', 'vsel_admin_init' );
 // section callbacks
 function vsel_single_section_callback() {
 	?>
-	<p><?php esc_attr_e( 'Support for the events unique page and events single template must be active.', 'flying-bird' ); ?></p>
+	<p><?php esc_attr_e( 'La prise en charge de la page des événements uniques et du modèle des événements uniques doit être active.', 'flying-bird' ); ?></p>
 	<p><?php esc_attr_e( 'Le titre, les informations et l\'image d\'entête sont gérés par votre thème.', 'flying-bird' ); ?></p>
 	<?php
 }
 
 function vsel_widget_section_callback() {
 	?>
-	<p><?php printf( esc_attr__( 'Meta section and event info section are full width when using the widget.', 'flying-bird' ), esc_attr__( 'Info', 'flying-bird' ) ); ?></p>
+	<p><?php printf( esc_attr__( 'La section Meta et la section d\'informations sur l\'événement sont en pleine largeur lors de l\'utilisation du widget.', 'flying-bird' ), esc_attr__( 'Info', 'flying-bird' ) ); ?></p>
 	<?php
 }
 
@@ -309,7 +309,7 @@ function vsel_field_callback() {
 	$value = esc_attr( get_option( 'vsel-setting' ) );
 	?>
 	<input type='hidden' name='vsel-setting' value='no'>
-	<label><input type='checkbox' name='vsel-setting' <?php checked( $value, 'yes' ); ?> value='yes'> <?php esc_attr_e( 'Do not delete events and settings.', 'flying-bird' ); ?></label>
+	<label><input type='checkbox' name='vsel-setting' <?php checked( $value, 'yes' ); ?> value='yes'> <?php esc_attr_e( 'Ne pas supprimer les événements ainsi que le paramétrage lors de la désinstallation.', 'flying-bird' ); ?></label>
 	<?php
 }
 
@@ -325,9 +325,9 @@ function vsel_field_callback_58() {
 	$value = esc_attr( get_option( 'vsel-setting-58' ) );
 	?>
 	<input type='hidden' name='vsel-setting-58' value='no'>
-	<label><input type='checkbox' name='vsel-setting-58' <?php checked( $value, 'yes' ); ?> value='yes'> <?php esc_attr_e( 'One date instead of start date and end date.', 'flying-bird' ); ?></label>
-	<p><i><?php esc_attr_e( 'This does not affect existing events.', 'flying-bird' ); ?></i></p>
-	<p><i><?php esc_attr_e( 'You can always turn back to previous format again.', 'flying-bird' ); ?></i></p>
+	<label><input type='checkbox' name='vsel-setting-58' <?php checked( $value, 'yes' ); ?> value='yes'> <?php esc_attr_e( 'Une unique date plutôt qu\'une date de début et de fin.', 'flying-bird' ); ?></label>
+	<p><i><?php esc_attr_e( 'Cela n\'affecte pas les événements existants.', 'flying-bird' ); ?></i></p>
+	<p><i><?php esc_attr_e( 'Vous pourrez toujours revenir au format précédent.', 'flying-bird' ); ?></i></p>
 	<?php
 }
 
@@ -376,7 +376,7 @@ function vsel_field_callback_61() {
 	?>
 	<input type='hidden' name='vsel-setting-61' value='no'>
 	<label><input type='checkbox' name='vsel-setting-61' <?php checked( $value, 'yes' ); ?> value='yes'> <?php esc_attr_e( 'Désactiver la colonne dans le tableau de bord.', 'flying-bird' ); ?></label>
-	<p><i><?php esc_attr_e( 'This column shows your custom order for events with the same date.', 'flying-bird' ); ?></i></p>
+	<p><i><?php esc_attr_e( 'Cette colonne affiche votre commande personnalisée pour les événements avec la même date.', 'flying-bird' ); ?></i></p>
 	<?php
 }
 
@@ -384,8 +384,8 @@ function vsel_field_callback_50() {
 	$value = esc_attr( get_option( 'vsel-setting-50' ) );
 	?>
 	<input type='hidden' name='vsel-setting-50' value='no'>
-	<label><input type='checkbox' name='vsel-setting-50' <?php checked( $value, 'yes' ); ?> value='yes'> <?php printf( esc_attr__( 'Disable support for the %s page.', 'flying-bird' ), esc_attr__( 'Menu', 'flying-bird' ) ); ?></label>
-	<p><i><?php esc_attr_e( 'This support is added to make Flying Bird compatible with page builder plugins.', 'flying-bird' ); ?></i></p>
+	<label><input type='checkbox' name='vsel-setting-50' <?php checked( $value, 'yes' ); ?> value='yes'> <?php printf( esc_attr__( 'Désactiver la prise en charge de la page %s.', 'flying-bird' ), esc_attr__( 'Menu', 'flying-bird' ) ); ?></label>
+	<p><i><?php esc_attr_e( 'Ce support est ajouté pour rendre Flying Bird compatible avec les plugins de création de pages.', 'flying-bird' ); ?></i></p>
 	<?php
 }
 
@@ -393,7 +393,7 @@ function vsel_field_callback_60() {
 	$value = esc_attr( get_option( 'vsel-setting-60' ) );
 	?>
 	<input type='hidden' name='vsel-setting-60' value='no'>
-	<label><input type='checkbox' name='vsel-setting-60' <?php checked( $value, 'yes' ); ?> value='yes'> <?php printf( esc_attr__( 'Disable support for the %s page.', 'flying-bird' ), esc_attr__( 'Évènement unique', 'flying-bird' ) ); ?></label>
+	<label><input type='checkbox' name='vsel-setting-60' <?php checked( $value, 'yes' ); ?> value='yes'> <?php printf( esc_attr__( 'Désactiver la prise en charge de la page %s.', 'flying-bird' ), esc_attr__( 'Évènement unique', 'flying-bird' ) ); ?></label>
 	<?php
 }
 
@@ -411,10 +411,10 @@ function vsel_field_callback_48() {
 	$link_permalinks = '<a href="'.admin_url( 'options-permalink.php' ).'">'.$link_label.'</a>';
 	?>
 	<input type='hidden' name='vsel-setting-48' value='no'>
-	<label><input type='checkbox' name='vsel-setting-48' <?php checked( $value, 'yes' ); ?> value='yes'> <?php printf( esc_attr__( 'Disable support for the %s page.', 'flying-bird' ), esc_attr__( 'Post Type Archive', 'flying-bird' ) ); ?></label>
-	<p><strong><i><?php printf( esc_attr__( 'Resave the %s after changing this.', 'flying-bird' ), $link_permalinks ); ?></i></strong></p>
-	<p><i><?php printf( esc_attr__( 'La page %s n\'est pas générée par Flying Bird. Les événements ne sont pas classés par date d\'événement.', 'flying-bird' ), esc_attr__( 'Post Type Archive', 'flying-bird' ) ); ?></i></p>
-	<p><i><?php esc_attr_e( 'This support is added to make Flying Bird compatible with page builder plugins.', 'flying-bird' ); ?></i></p>
+	<label><input type='checkbox' name='vsel-setting-48' <?php checked( $value, 'yes' ); ?> value='yes'> <?php printf( esc_attr__( 'Désactiver la prise en charge du %s.', 'flying-bird' ), esc_attr__( 'Archive des types d\'évènements', 'flying-bird' ) ); ?></label>
+	<p><strong><i><?php printf( esc_attr__( 'Sauvegarder de nouveau vos %s après avoir changé ce paramètre.', 'flying-bird' ), $link_permalinks ); ?></i></strong></p>
+	<p><i><?php printf( esc_attr__( 'La page %s n\'est pas générée par Flying Bird. Les événements ne sont pas classés par date d\'événement.', 'flying-bird' ), esc_attr__( 'Archive des types d\'évènements', 'flying-bird' ) ); ?></i></p>
+	<p><i><?php esc_attr_e( 'Ce support est ajouté pour rendre Flying Bird compatible avec les plugins de création de pages.', 'flying-bird' ); ?></i></p>
 	<?php
 }
 
@@ -422,9 +422,9 @@ function vsel_field_callback_43() {
 	$value = esc_attr( get_option( 'vsel-setting-43' ) );
 	?>
 	<input type='hidden' name='vsel-setting-43' value='no'>
-	<label><input type='checkbox' name='vsel-setting-43' <?php checked( $value, 'yes' ); ?> value='yes'> <?php printf( esc_attr__( 'Désactiver la prise en charge du modèle %s.', 'flying-bird' ), esc_attr__( 'Post Type Archive', 'flying-bird' ) ); ?></label>
-	<p><i><?php printf( esc_attr__( 'The %s page is not generated by Flying Bird. Events are not ordered by event date.', 'flying-bird' ), esc_attr__( 'Post Type Archive', 'flying-bird' ) ); ?></i></p>
-	<p><i><?php esc_attr_e( 'This support is added to make Flying Bird compatible with page builder plugins.', 'flying-bird' ); ?></i></p>
+	<label><input type='checkbox' name='vsel-setting-43' <?php checked( $value, 'yes' ); ?> value='yes'> <?php printf( esc_attr__( 'Désactiver la prise en charge du modèle %s.', 'flying-bird' ), esc_attr__( 'Archive des types d\'évènements', 'flying-bird' ) ); ?></label>
+	<p><i><?php printf( esc_attr__( 'La page %s n\'est pas générée par Flying Bird. Les événements ne sont pas classés par date d\'événement.', 'flying-bird' ), esc_attr__( 'Archive des types d\'évènements', 'flying-bird' ) ); ?></i></p>
+	<p><i><?php esc_attr_e( 'Ce support est ajouté pour rendre Flying Bird compatible avec les plugins de création de pages.', 'flying-bird' ); ?></i></p>
 	<?php
 }
 
@@ -433,8 +433,8 @@ function vsel_field_callback_40() {
 	?>
 	<input type='hidden' name='vsel-setting-40' value='no'>
 	<label><input type='checkbox' name='vsel-setting-40' <?php checked( $value, 'yes' ); ?> value='yes'> <?php printf( esc_attr__( 'Désactiver la prise en charge du modèle %s.', 'flying-bird' ), esc_attr__( 'Catégorie de l\'évènement', 'flying-bird' ) ); ?></label>
-	<p><i><?php printf( esc_attr__( 'The %s page is not generated by Flying Bird. Events are not ordered by event date.', 'flying-bird' ), esc_attr__( 'Catégorie de l\'évènement', 'flying-bird' ) ); ?></i></p>
-	<p><i><?php esc_attr_e( 'This support is added to make Flying Bird compatible with page builder plugins.', 'flying-bird' ); ?></i></p>
+	<p><i><?php printf( esc_attr__( 'La page %s n\'est pas générée par Flying Bird. Les événements ne sont pas classés par date d\'événement.', 'flying-bird' ), esc_attr__( 'Catégorie de l\'évènement', 'flying-bird' ) ); ?></i></p>
+	<p><i><?php esc_attr_e( 'Ce support est ajouté pour rendre Flying Bird compatible avec les plugins de création de pages.', 'flying-bird' ); ?></i></p>
 	<?php
 }
 
@@ -443,8 +443,8 @@ function vsel_field_callback_41() {
 	?>
 	<input type='hidden' name='vsel-setting-41' value='no'>
 	<label><input type='checkbox' name='vsel-setting-41' <?php checked( $value, 'yes' ); ?> value='yes'> <?php printf( esc_attr__( 'Désactiver la prise en charge du modèle %s.', 'flying-bird' ), esc_attr__( 'Search Results', 'flying-bird' ) ); ?></label>
-	<p><i><?php printf( esc_attr__( 'The %s page is not generated by Flying Bird. Events are not ordered by event date.', 'flying-bird' ), esc_attr__( 'Search Results', 'flying-bird' ) ); ?></i></p>
-	<p><i><?php esc_attr_e( 'This support is added to make Flying Bird compatible with page builder plugins.', 'flying-bird' ); ?></i></p>
+	<p><i><?php printf( esc_attr__( 'La page %s n\'est pas générée par Flying Bird. Les événements ne sont pas classés par date d\'événement.', 'flying-bird' ), esc_attr__( 'Search Results', 'flying-bird' ) ); ?></i></p>
+	<p><i><?php esc_attr_e( 'Ce support est ajouté pour rendre Flying Bird compatible avec les plugins de création de pages.', 'flying-bird' ); ?></i></p>
 	<?php
 }
 
@@ -457,7 +457,7 @@ function vsel_field_callback_46() {
 	$link_label = __( 'Permalinks', 'flying-bird' );
 	$link_permalinks = '<a href="'.admin_url( 'options-permalink.php' ).'">'.$link_label.'</a>';
 	?>
-	<p><strong><i><?php printf( esc_attr__( 'Resave the %s after changing this.', 'flying-bird' ), $link_permalinks ); ?></i></strong></p>
+	<p><strong><i><?php printf( esc_attr__( 'Sauvegarder de nouveau vos %s après avoir changé ce paramètre.', 'flying-bird' ), $link_permalinks ); ?></i></strong></p>
 	<?php
 }
 
@@ -470,7 +470,7 @@ function vsel_field_callback_47() {
 	$link_label = __( 'Permalinks', 'flying-bird' );
 	$link_permalinks = '<a href="'.admin_url( 'options-permalink.php' ).'">'.$link_label.'</a>';
 	?>
-	<p><strong><i><?php printf( esc_attr__( 'Resave the %s after changing this.', 'flying-bird' ), $link_permalinks ); ?></i></strong></p>
+	<p><strong><i><?php printf( esc_attr__( 'Sauvegarder de nouveau vos %s après avoir changé ce paramètre.', 'flying-bird' ), $link_permalinks ); ?></i></strong></p>
 	<?php
 }
 
@@ -480,8 +480,8 @@ function vsel_field_callback_66() {
 	$placeholder = '36';
 	?>
 	<label><input type='number' size='10' min='20' max='60' maxlength='3' name='vsel-setting-66' placeholder='<?php echo $placeholder; ?>' value='<?php echo $value; ?>' /> <?php printf( esc_attr__( 'Valeur par défaut : %s.', 'flying-bird' ), '36' ); ?></label>
-	<p><i><?php esc_attr_e( 'This is the width of the Event Meta section.', 'flying-bird' ); ?></i></p>
-	<p><strong><i><?php esc_attr_e( 'Featured image and info must not be hidden.', 'flying-bird' ); ?></i></strong></p>
+	<p><i><?php esc_attr_e( 'Taille de la section Meta de vos évènements.', 'flying-bird' ); ?></i></p>
+	<p><strong><i><?php esc_attr_e( 'L\'image et les informations mises en avant ne doivent pas être masquées.', 'flying-bird' ); ?></i></strong></p>
 	<?php
 }
 
@@ -489,19 +489,19 @@ function vsel_field_callback_35() {
 	$value = esc_attr( get_option( 'vsel-setting-35' ) );
  	?>
 	<select id='vsel-setting-35' name='vsel-setting-35'>
-		<option value='left'<?php echo ($value == 'left') ? 'selected' : ''; ?>><?php esc_attr_e( 'Align Left', 'flying-bird' ); ?></option>
-		<option value='right'<?php echo ($value == 'right') ? 'selected' : ''; ?>><?php esc_attr_e( 'Align Right', 'flying-bird' ); ?></option>
+		<option value='left'<?php echo ($value == 'left') ? 'selected' : ''; ?>><?php esc_attr_e( 'Alignement : gauche', 'flying-bird' ); ?></option>
+		<option value='right'<?php echo ($value == 'right') ? 'selected' : ''; ?>><?php esc_attr_e( 'Alignement : droit', 'flying-bird' ); ?></option>
 	</select>
 	<?php
-	printf( esc_attr__( 'Valeur par défaut : %s.', 'flying-bird' ), esc_attr__( 'Align Left', 'flying-bird' ) );
+	printf( esc_attr__( 'Valeur par défaut : %s.', 'flying-bird' ), esc_attr__( 'Alignement : gauche', 'flying-bird' ) );
 }
 
 function vsel_field_callback_59() {
 	$value = esc_attr( get_option( 'vsel-setting-59' ) );
 	?>
 	<input type='hidden' name='vsel-setting-59' value='no'>
-	<label><input type='checkbox' name='vsel-setting-59' <?php checked( $value, 'yes' ); ?> value='yes'> <?php esc_attr_e( 'Display on top (outside the Event Meta section).', 'flying-bird' ); ?></label>
-	<p><i><?php esc_attr_e( 'This only affects pages where you have added the shortcode.', 'flying-bird' ); ?></i></p>
+	<label><input type='checkbox' name='vsel-setting-59' <?php checked( $value, 'yes' ); ?> value='yes'> <?php esc_attr_e( 'Afficher au dessus (en dehors de la section Meta des évènements)).', 'flying-bird' ); ?></label>
+	<p><i><?php esc_attr_e( 'Cela n\'affecte que les pages où vous avez ajouté un shortcode.', 'flying-bird' ); ?></i></p>
 	<?php
 }
 
@@ -510,7 +510,7 @@ function vsel_field_callback_9() {
 	?>
 	<input type='hidden' name='vsel-setting-9' value='no'>
 	<label><input type='checkbox' name='vsel-setting-9' <?php checked( $value, 'yes' ); ?> value='yes'> <?php esc_attr_e( 'Lien vers la page de l\'évènement.', 'flying-bird' ); ?></label>
-	<p><i><?php esc_attr_e( 'This only affects pages where you have added the shortcode.', 'flying-bird' ); ?></i></p>
+	<p><i><?php esc_attr_e( 'Cela n\'affecte que les pages où vous avez ajouté un shortcode.', 'flying-bird' ); ?></i></p>
 	<?php
 }
 
@@ -518,7 +518,7 @@ function vsel_field_callback_62() {
 	$value = esc_attr( get_option( 'vsel-setting-62' ) );
 	?>
 	<input type='hidden' name='vsel-setting-62' value='no'>
-	<label><input type='checkbox' name='vsel-setting-62' <?php checked( $value, 'yes' ); ?> value='yes'> <?php esc_attr_e( 'Show a date icon instead of a label.', 'flying-bird' ); ?></label>
+	<label><input type='checkbox' name='vsel-setting-62' <?php checked( $value, 'yes' ); ?> value='yes'> <?php esc_attr_e( 'Afficher une icône de date plutôt qu\'une étiquette.', 'flying-bird' ); ?></label>
 	<?php
 }
 
@@ -526,11 +526,11 @@ function vsel_field_callback_68() {
 	$value = esc_attr( get_option( 'vsel-setting-68' ) );
 	?>
 	<input type='hidden' name='vsel-setting-68' value='no'>
-	<label><input type='checkbox' name='vsel-setting-68' <?php checked( $value, 'yes' ); ?> value='yes'> <?php esc_attr_e( 'Combine date icon and title.', 'flying-bird' ); ?></label>
-	<p><strong><i><?php esc_attr_e( 'Date icon must be active.', 'flying-bird' ); ?></i></strong></p>
-	<p><strong><i><?php esc_attr_e( 'Titre and date must not be hidden.', 'flying-bird' ); ?></i></strong></p>
-	<p><strong><i><?php esc_attr_e( 'Titre must not be displayed on top.', 'flying-bird' ); ?></i></strong></p>
-	<p><i><?php esc_attr_e( 'This only affects pages where you have added the shortcode.', 'flying-bird' ); ?></i></p>
+	<label><input type='checkbox' name='vsel-setting-68' <?php checked( $value, 'yes' ); ?> value='yes'> <?php esc_attr_e( 'Combine l\'icône de date et le titre.', 'flying-bird' ); ?></label>
+	<p><strong><i><?php esc_attr_e( 'Les icônes de date doivent êtres actives.', 'flying-bird' ); ?></i></strong></p>
+	<p><strong><i><?php esc_attr_e( 'Le titre et la date ne doivent pas être masqués.', 'flying-bird' ); ?></i></strong></p>
+	<p><strong><i><?php esc_attr_e( 'Le titre ne doit pas être affiché en haut.', 'flying-bird' ); ?></i></strong></p>
+	<p><i><?php esc_attr_e( 'Cela n\'affecte que les pages où vous avez ajouté un shortcode.', 'flying-bird' ); ?></i></p>
 	<?php
 }
 
@@ -538,8 +538,8 @@ function vsel_field_callback_15() {
 	$value = esc_attr( get_option( 'vsel-setting-15' ) );
 	?>
 	<input type='hidden' name='vsel-setting-15' value='no'>
-	<label><input type='checkbox' name='vsel-setting-15' <?php checked( $value, 'yes' ); ?> value='yes'> <?php esc_attr_e( 'Combine start date and end date in one label.', 'flying-bird' ); ?></label>
-	<p><i><?php esc_attr_e( 'This does not affect the date icons.', 'flying-bird' ); ?></i></p>
+	<label><input type='checkbox' name='vsel-setting-15' <?php checked( $value, 'yes' ); ?> value='yes'> <?php esc_attr_e( 'Combine la date de début ainsi que la date de fin dans une seule étiquette.', 'flying-bird' ); ?></label>
+	<p><i><?php esc_attr_e( 'Cela n\'affecte pas les icônes de date.', 'flying-bird' ); ?></i></p>
 	<?php
 }
 
@@ -547,25 +547,25 @@ function vsel_field_callback_36() {
 	$value = esc_attr( get_option( 'vsel-setting-36' ) );
  	?>
 	<select id='vsel-setting-36' name='vsel-setting-36'>
-		<option value='right'<?php echo ($value == 'right') ? 'selected' : ''; ?>><?php esc_attr_e( 'Align Right', 'flying-bird' ); ?></option>
-		<option value='left'<?php echo ($value == 'left') ? 'selected' : ''; ?>><?php esc_attr_e( 'Align Left', 'flying-bird' ); ?></option>
+		<option value='right'<?php echo ($value == 'right') ? 'selected' : ''; ?>><?php esc_attr_e( 'Alignement : droit', 'flying-bird' ); ?></option>
+		<option value='left'<?php echo ($value == 'left') ? 'selected' : ''; ?>><?php esc_attr_e( 'Alignement : gauche', 'flying-bird' ); ?></option>
 	</select>
 	<?php
-	printf( esc_attr__( 'Valeur par défaut : %s.', 'flying-bird' ), esc_attr__( 'Align Right', 'flying-bird' ) );
+	printf( esc_attr__( 'Valeur par défaut : %s.', 'flying-bird' ), esc_attr__( 'Alignement : droit', 'flying-bird' ) );
 }
 
 function vsel_field_callback_30() {
 	$value = esc_attr( get_option( 'vsel-setting-30' ) );
  	?>
 	<select id='vsel-setting-30' name='vsel-setting-30'>
-		<option value='post-thumbnail'<?php echo ($value == 'post-thumbnail') ? 'selected' : ''; ?>><?php esc_attr_e( 'Post Thumbnail', 'flying-bird' ); ?></option>
+		<option value='post-thumbnail'<?php echo ($value == 'post-thumbnail') ? 'selected' : ''; ?>><?php esc_attr_e( 'Vignette des évènements', 'flying-bird' ); ?></option>
 		<option value='large'<?php echo ($value == 'large') ? 'selected' : ''; ?>><?php esc_attr_e( 'Large', 'flying-bird' ); ?></option>
 		<option value='medium'<?php echo ($value == 'medium') ? 'selected' : ''; ?>><?php esc_attr_e( 'Medium', 'flying-bird' ); ?></option>
 		<option value='small'<?php echo ($value == 'small') ? 'selected' : ''; ?>><?php esc_attr_e( 'Small', 'flying-bird' ); ?></option>
 	</select>
-	<?php printf( esc_attr__( 'Valeur par défaut : %s.', 'flying-bird' ), esc_attr__( 'Post Thumbnail', 'flying-bird' ) ); ?>
-	<p><i><?php esc_attr_e( 'This size is being used as source for the featured image.', 'flying-bird' ); ?></i></p>
-	<p><i><?php esc_attr_e( 'The size of the Post Thumbnail may vary by theme.', 'flying-bird' ); ?></i></p>
+	<?php printf( esc_attr__( 'Valeur par défaut : %s.', 'flying-bird' ), esc_attr__( 'Vignette des évènements', 'flying-bird' ) ); ?>
+	<p><i><?php esc_attr_e( 'Cette taille est utilisée comme source pour l\'image d\'entête.', 'flying-bird' ); ?></i></p>
+	<p><i><?php esc_attr_e( 'La taille de la vignette de l\'évènement peut varier selon votre thème.', 'flying-bird' ); ?></i></p>
 	<?php
 }
 
@@ -574,7 +574,7 @@ function vsel_field_callback_53() {
 	$placeholder = '40';
 	?>
 	<label><input type='number' size='10' min='20' max='100' maxlength='3' name='vsel-setting-53' placeholder='<?php echo $placeholder; ?>' value='<?php echo $value; ?>' /> <?php printf( esc_attr__( 'Valeur par défaut : %s.', 'flying-bird' ), '40' ); ?></label>
-	<p><i><?php esc_attr_e( 'This is the maximum width of the featured image.', 'flying-bird' ); ?></i></p>
+	<p><i><?php esc_attr_e( 'Taille maximale de l\'image d\'entête.', 'flying-bird' ); ?></i></p>
 	<?php
 }
 
@@ -590,8 +590,8 @@ function vsel_field_callback_13() {
 	$value = esc_attr( get_option( 'vsel-setting-13' ) );
 	?>
 	<input type='hidden' name='vsel-setting-13' value='no'>
-	<label><input type='checkbox' name='vsel-setting-13' <?php checked( $value, 'yes' ); ?> value='yes'> <?php esc_attr_e( 'Show a summary instead of all info.', 'flying-bird' ); ?></label>
-	<p><i><?php esc_attr_e( 'This only affects pages where you have added the shortcode.', 'flying-bird' ); ?></i></p>
+	<label><input type='checkbox' name='vsel-setting-13' <?php checked( $value, 'yes' ); ?> value='yes'> <?php esc_attr_e( 'Affiche le résumé plutôt que toutes les informations.', 'flying-bird' ); ?></label>
+	<p><i><?php esc_attr_e( 'Cela n\'affecte que les pages où vous avez ajouté un shortcode.', 'flying-bird' ); ?></i></p>
 	<?php
 }
 
@@ -599,8 +599,8 @@ function vsel_field_callback_44() {
 	$value = esc_attr( get_option( 'vsel-setting-44' ) );
 	?>
 	<input type='hidden' name='vsel-setting-44' value='no'>
-	<label><input type='checkbox' name='vsel-setting-44' <?php checked( $value, 'yes' ); ?> value='yes'> <?php esc_attr_e( 'Link to the category page.', 'flying-bird' ); ?></label>
-	<p><i><?php printf( esc_attr__( 'The %s page is not generated by Flying Bird. Events are not ordered by event date.', 'flying-bird' ), esc_attr__( 'Catégorie de l\'évènement', 'flying-bird' ) ); ?></i></p>
+	<label><input type='checkbox' name='vsel-setting-44' <?php checked( $value, 'yes' ); ?> value='yes'> <?php esc_attr_e( 'Lien vers la page des catégories.', 'flying-bird' ); ?></label>
+	<p><i><?php printf( esc_attr__( 'La page %s n\'est pas générée par Flying Bird. Les événements ne sont pas classés par date d\'événement.', 'flying-bird' ), esc_attr__( 'Catégorie de l\'évènement', 'flying-bird' ) ); ?></i></p>
 	<?php
 }
 
@@ -609,7 +609,7 @@ function vsel_field_callback_64() {
 	?>
 	<input type='hidden' name='vsel-setting-64' value='no'>
 	<label><input type='checkbox' name='vsel-setting-64' <?php checked( $value, 'yes' ); ?> value='yes'> <?php esc_attr_e( 'Masquer', 'flying-bird' ); ?></label>
-	<p><i><?php esc_attr_e( 'This only affects pages where you have added the shortcode.', 'flying-bird' ); ?></i></p>
+	<p><i><?php esc_attr_e( 'Cela n\'affecte que les pages où vous avez ajouté un shortcode.', 'flying-bird' ); ?></i></p>
 	<?php
 }
 
@@ -674,7 +674,7 @@ function vsel_field_callback_42() {
 	?>
 	<input type='hidden' name='vsel-setting-42' value='no'>
 	<label><input type='checkbox' name='vsel-setting-42' <?php checked( $value, 'yes' ); ?> value='yes'> <?php esc_attr_e( 'Masquer', 'flying-bird' ); ?></label>
-	<p><i><?php esc_attr_e( 'This only affects pages where you have added the shortcode.', 'flying-bird' ); ?></i></p>
+	<p><i><?php esc_attr_e( 'Cela n\'affecte que les pages où vous avez ajouté un shortcode.', 'flying-bird' ); ?></i></p>
 	<?php
 }
 
@@ -691,7 +691,7 @@ function vsel_field_callback_16() {
 	$value = esc_attr( get_option( 'vsel-setting-16' ) );
 	?>
 	<input type='text' size='40' name='vsel-setting-16' placeholder='<?php echo $placeholder; ?>' value='<?php echo $value; ?>' />
-	<p><i><?php printf( esc_attr__( 'Use %1$s to display the %2$s variable.', 'flying-bird' ), '%s', esc_attr__( 'Date', 'flying-bird' ) ); ?></i></p>
+	<p><i><?php printf( esc_attr__( 'Utiliser %1$s pour afficher la variable %2$s.', 'flying-bird' ), '%s', esc_attr__( 'Date', 'flying-bird' ) ); ?></i></p>
 	<?php
 }
 
@@ -700,7 +700,7 @@ function vsel_field_callback_17() {
 	$value = esc_attr( get_option( 'vsel-setting-17' ) );
 	?>
 	<input type='text' size='40' name='vsel-setting-17' placeholder='<?php echo $placeholder; ?>' value='<?php echo $value; ?>' />
-	<p><i><?php printf( esc_attr__( 'Use %1$s to display the %2$s variable.', 'flying-bird' ), '%s', esc_attr__( 'Date de départ', 'flying-bird' ) ); ?></i></p>
+	<p><i><?php printf( esc_attr__( 'Utiliser %1$s pour afficher la variable %2$s.', 'flying-bird' ), '%s', esc_attr__( 'Date de départ', 'flying-bird' ) ); ?></i></p>
 	<?php
 }
 
@@ -709,7 +709,7 @@ function vsel_field_callback_18() {
 	$value = esc_attr( get_option( 'vsel-setting-18' ) );
 	?>
 	<input type='text' size='40' name='vsel-setting-18' placeholder='<?php echo $placeholder; ?>' value='<?php echo $value; ?>' />
-	<p><i><?php printf( esc_attr__( 'Use %1$s to display the %2$s variable.', 'flying-bird' ), '%s', esc_attr__( 'Date de fin', 'flying-bird' ) ); ?></i></p>
+	<p><i><?php printf( esc_attr__( 'Utiliser %1$s pour afficher la variable %2$s.', 'flying-bird' ), '%s', esc_attr__( 'Date de fin', 'flying-bird' ) ); ?></i></p>
 	<?php
 }
 
@@ -718,7 +718,7 @@ function vsel_field_callback_19() {
 	$value = esc_attr( get_option( 'vsel-setting-19' ) );
 	?>
 	<input type='text' size='40' name='vsel-setting-19' placeholder='<?php echo $placeholder; ?>' value='<?php echo $value; ?>' />
-	<p><i><?php printf( esc_attr__( 'Use %1$s to display the %2$s variable.', 'flying-bird' ), '%s', esc_attr__( 'Heure', 'flying-bird' ) ); ?></i></p>
+	<p><i><?php printf( esc_attr__( 'Utiliser %1$s pour afficher la variable %2$s.', 'flying-bird' ), '%s', esc_attr__( 'Heure', 'flying-bird' ) ); ?></i></p>
 	<?php
 }
 
@@ -727,7 +727,7 @@ function vsel_field_callback_20() {
 	$value = esc_attr( get_option( 'vsel-setting-20' ) );
 	?>
 	<input type='text' size='40' name='vsel-setting-20' placeholder='<?php echo $placeholder; ?>' value='<?php echo $value; ?>' />
-	<p><i><?php printf( esc_attr__( 'Use %1$s to display the %2$s variable.', 'flying-bird' ), '%s', esc_attr__( 'Lieu', 'flying-bird' ) ); ?></i></p>
+	<p><i><?php printf( esc_attr__( 'Utiliser %1$s pour afficher la variable %2$s.', 'flying-bird' ), '%s', esc_attr__( 'Lieu', 'flying-bird' ) ); ?></i></p>
 	<?php
 }
 
@@ -744,7 +744,7 @@ function vsel_field_callback_63() {
 	$value = esc_attr( get_option( 'vsel-setting-63' ) );
 	?>
 	<input type='hidden' name='vsel-setting-63' value='no'>
-	<label><input type='checkbox' name='vsel-setting-63' <?php checked( $value, 'yes' ); ?> value='yes'> <?php esc_attr_e( 'Show a date icon instead of a label.', 'flying-bird' ); ?></label>
+	<label><input type='checkbox' name='vsel-setting-63' <?php checked( $value, 'yes' ); ?> value='yes'> <?php esc_attr_e( 'Afficher une icône de date plutôt qu\'une étiquette.', 'flying-bird' ); ?></label>
 	<?php
 }
 
@@ -752,9 +752,9 @@ function vsel_field_callback_67() {
 	$value = esc_attr( get_option( 'vsel-setting-67' ) );
 	?>
 	<input type='hidden' name='vsel-setting-67' value='no'>
-	<label><input type='checkbox' name='vsel-setting-67' <?php checked( $value, 'yes' ); ?> value='yes'> <?php esc_attr_e( 'Combine date icon and title.', 'flying-bird' ); ?></label>
-	<p><strong><i><?php esc_attr_e( 'Date icon must be active.', 'flying-bird' ); ?></i></strong></p>
-	<p><strong><i><?php esc_attr_e( 'Titre and date must not be hidden.', 'flying-bird' ); ?></i></strong></p>
+	<label><input type='checkbox' name='vsel-setting-67' <?php checked( $value, 'yes' ); ?> value='yes'> <?php esc_attr_e( 'Combine l\'icône de date et le titre.', 'flying-bird' ); ?></label>
+	<p><strong><i><?php esc_attr_e( 'Les icônes de date doivent être actives.', 'flying-bird' ); ?></i></strong></p>
+	<p><strong><i><?php esc_attr_e( 'Le titre et la date ne doivent pas être masqués.', 'flying-bird' ); ?></i></strong></p>
 	<?php
 }
 
@@ -762,8 +762,8 @@ function vsel_field_callback_21() {
 	$value = esc_attr( get_option( 'vsel-setting-21' ) );
 	?>
 	<input type='hidden' name='vsel-setting-21' value='no'>
-	<label><input type='checkbox' name='vsel-setting-21' <?php checked( $value, 'yes' ); ?> value='yes'> <?php esc_attr_e( 'Combine start date and end date in one label.', 'flying-bird' ); ?></label>
-	<p><i><?php esc_attr_e( 'This does not affect the date icons.', 'flying-bird' ); ?></i></p>
+	<label><input type='checkbox' name='vsel-setting-21' <?php checked( $value, 'yes' ); ?> value='yes'> <?php esc_attr_e( 'Combine la date de début ainsi que la date de fin dans une seule étiquette.', 'flying-bird' ); ?></label>
+	<p><i><?php esc_attr_e( 'Cela n\'affecte pas les icônes de date.', 'flying-bird' ); ?></i></p>
 	<?php
 }
 
@@ -771,25 +771,25 @@ function vsel_field_callback_37() {
 	$value = esc_attr( get_option( 'vsel-setting-37' ) );
  	?>
 	<select id='vsel-setting-37' name='vsel-setting-37'>
-		<option value='right'<?php echo ($value == 'right') ? 'selected' : ''; ?>><?php esc_attr_e( 'Align Right', 'flying-bird' ); ?></option>
-		<option value='left'<?php echo ($value == 'left') ? 'selected' : ''; ?>><?php esc_attr_e( 'Align Left', 'flying-bird' ); ?></option>
+		<option value='right'<?php echo ($value == 'right') ? 'selected' : ''; ?>><?php esc_attr_e( 'Alignement : droit', 'flying-bird' ); ?></option>
+		<option value='left'<?php echo ($value == 'left') ? 'selected' : ''; ?>><?php esc_attr_e( 'Alignement : gauche', 'flying-bird' ); ?></option>
 	</select>
 	<?php
-	printf( esc_attr__( 'Valeur par défaut : %s.', 'flying-bird' ), esc_attr__( 'Align Right', 'flying-bird' ) );
+	printf( esc_attr__( 'Valeur par défaut : %s.', 'flying-bird' ), esc_attr__( 'Alignement : droit', 'flying-bird' ) );
 }
 
 function vsel_field_callback_32() {
 	$value = esc_attr( get_option( 'vsel-setting-32' ) );
  	?>
 	<select id='vsel-setting-32' name='vsel-setting-32'>
-		<option value='post-thumbnail'<?php echo ($value == 'post-thumbnail') ? 'selected' : ''; ?>><?php esc_attr_e( 'Post Thumbnail', 'flying-bird' ); ?></option>
+		<option value='post-thumbnail'<?php echo ($value == 'post-thumbnail') ? 'selected' : ''; ?>><?php esc_attr_e( 'Vignette des évènements', 'flying-bird' ); ?></option>
 		<option value='large'<?php echo ($value == 'large') ? 'selected' : ''; ?>><?php esc_attr_e( 'Large', 'flying-bird' ); ?></option>
-		<option value='medium'<?php echo ($value == 'medium') ? 'selected' : ''; ?>><?php esc_attr_e( 'Medium', 'flying-bird' ); ?></option>
-		<option value='small'<?php echo ($value == 'small') ? 'selected' : ''; ?>><?php esc_attr_e( 'Small', 'flying-bird' ); ?></option>
+		<option value='medium'<?php echo ($value == 'medium') ? 'selected' : ''; ?>><?php esc_attr_e( 'Moyen', 'flying-bird' ); ?></option>
+		<option value='small'<?php echo ($value == 'small') ? 'selected' : ''; ?>><?php esc_attr_e( 'Petit', 'flying-bird' ); ?></option>
 	</select>
-	<?php printf( esc_attr__( 'Valeur par défaut : %s.', 'flying-bird' ), esc_attr__( 'Post Thumbnail', 'flying-bird' ) ); ?>
-	<p><i><?php esc_attr_e( 'This size is being used as source for the featured image.', 'flying-bird' ); ?></i></p>
-	<p><i><?php esc_attr_e( 'The size of the Post Thumbnail may vary by theme.', 'flying-bird' ); ?></i></p>
+	<?php printf( esc_attr__( 'Valeur par défaut : %s.', 'flying-bird' ), esc_attr__( 'Vignette des évènements', 'flying-bird' ) ); ?>
+	<p><i><?php esc_attr_e( 'Cette taille est utilisée comme source pour l\'image d\'entête.', 'flying-bird' ); ?></i></p>
+	<p><i><?php esc_attr_e( 'La taille de la vignette de l\'évènement peut varier selon le thème.', 'flying-bird' ); ?></i></p>
 	<?php
 }
 
@@ -798,7 +798,7 @@ function vsel_field_callback_54() {
 	$placeholder = '40';
 	?>
 	<label><input type='number' size='10' min='20' max='100' maxlength='3' name='vsel-setting-54' placeholder='<?php echo $placeholder; ?>' value='<?php echo $value; ?>' /> <?php printf( esc_attr__( 'Valeur par défaut : %s.', 'flying-bird' ), '40' ); ?></label>
-	<p><i><?php esc_attr_e( 'This is the maximum width of the featured image.', 'flying-bird' ); ?></i></p>
+	<p><i><?php esc_attr_e( 'Taille maximale de l\'image d\'entête.', 'flying-bird' ); ?></i></p>
 	<?php
 }
 
@@ -814,7 +814,7 @@ function vsel_field_callback_1() {
 	$value = esc_attr( get_option( 'vsel-setting-1' ) );
 	?>
 	<input type='hidden' name='vsel-setting-1' value='no'>
-	<label><input type='checkbox' name='vsel-setting-1' <?php checked( $value, 'yes' ); ?> value='yes'> <?php esc_attr_e( 'Show a summary instead of all info.', 'flying-bird' ); ?></label>
+	<label><input type='checkbox' name='vsel-setting-1' <?php checked( $value, 'yes' ); ?> value='yes'> <?php esc_attr_e( 'Affiche le résumé plutôt que toutes les informations.', 'flying-bird' ); ?></label>
 	<?php
 }
 
@@ -822,8 +822,8 @@ function vsel_field_callback_45() {
 	$value = esc_attr( get_option( 'vsel-setting-45' ) );
 	?>
 	<input type='hidden' name='vsel-setting-45' value='no'>
-	<label><input type='checkbox' name='vsel-setting-45' <?php checked( $value, 'yes' ); ?> value='yes'> <?php esc_attr_e( 'Link to the category page.', 'flying-bird' ); ?></label>
-	<p><i><?php printf( esc_attr__( 'The %s page is not generated by Flying Bird. Events are not ordered by event date.', 'flying-bird' ), esc_attr__( 'Catégorie de l\'évènement', 'flying-bird' ) ); ?></i></p>
+	<label><input type='checkbox' name='vsel-setting-45' <?php checked( $value, 'yes' ); ?> value='yes'> <?php esc_attr_e( 'Lien vers la page des catégories.', 'flying-bird' ); ?></label>
+	<p><i><?php printf( esc_attr__( 'La page %s n\'est pas générée par Flying Bird. Les événements ne sont pas classés par date d\'événement.', 'flying-bird' ), esc_attr__( 'Catégorie de l\'évènement', 'flying-bird' ) ); ?></i></p>
 	<?php
 }
 
@@ -904,7 +904,7 @@ function vsel_field_callback_22() {
 	$value = esc_attr( get_option( 'vsel-setting-22' ) );
 	?>
 	<input type='text' size='40' name='vsel-setting-22' placeholder='<?php echo $placeholder; ?>' value='<?php echo $value; ?>' />
-	<p><i><?php printf( esc_attr__( 'Use %1$s to display the %2$s variable.', 'flying-bird' ), '%s', esc_attr__( 'Date', 'flying-bird' ) ); ?></i></p>
+	<p><i><?php printf( esc_attr__( 'Utiliser %1$s pour afficher la variable %2$s.', 'flying-bird' ), '%s', esc_attr__( 'Date', 'flying-bird' ) ); ?></i></p>
 	<?php
 }
 
@@ -913,7 +913,7 @@ function vsel_field_callback_23() {
 	$value = esc_attr( get_option( 'vsel-setting-23' ) );
 	?>
 	<input type='text' size='40' name='vsel-setting-23' placeholder='<?php echo $placeholder; ?>' value='<?php echo $value; ?>' />
-	<p><i><?php printf( esc_attr__( 'Use %1$s to display the %2$s variable.', 'flying-bird' ), '%s', esc_attr__( 'Date de départ', 'flying-bird' ) ); ?></i></p>
+	<p><i><?php printf( esc_attr__( 'Utiliser %1$s pour afficher la variable %2$s.', 'flying-bird' ), '%s', esc_attr__( 'Date de départ', 'flying-bird' ) ); ?></i></p>
 	<?php
 }
 
@@ -922,7 +922,7 @@ function vsel_field_callback_24() {
 	$value = esc_attr( get_option( 'vsel-setting-24' ) );
 	?>
 	<input type='text' size='40' name='vsel-setting-24' placeholder='<?php echo $placeholder; ?>' value='<?php echo $value; ?>' />
-	<p><i><?php printf( esc_attr__( 'Use %1$s to display the %2$s variable.', 'flying-bird' ), '%s', esc_attr__( 'Date de fin', 'flying-bird' ) ); ?></i></p>
+	<p><i><?php printf( esc_attr__( 'Utiliser %1$s pour afficher la variable %2$s.', 'flying-bird' ), '%s', esc_attr__( 'Date de fin', 'flying-bird' ) ); ?></i></p>
 	<?php
 }
 
@@ -931,7 +931,7 @@ function vsel_field_callback_25() {
 	$value = esc_attr( get_option( 'vsel-setting-25' ) );
 	?>
 	<input type='text' size='40' name='vsel-setting-25' placeholder='<?php echo $placeholder; ?>' value='<?php echo $value; ?>' />
-	<p><i><?php printf( esc_attr__( 'Use %1$s to display the %2$s variable.', 'flying-bird' ), '%s', esc_attr__( 'Heure', 'flying-bird' ) ); ?></i></p>
+	<p><i><?php printf( esc_attr__( 'Utiliser %1$s pour afficher la variable %2$s.', 'flying-bird' ), '%s', esc_attr__( 'Heure', 'flying-bird' ) ); ?></i></p>
 	<?php
 }
 
@@ -940,7 +940,7 @@ function vsel_field_callback_26() {
 	$value = esc_attr( get_option( 'vsel-setting-26' ) );
 	?>
 	<input type='text' size='40' name='vsel-setting-26' placeholder='<?php echo $placeholder; ?>' value='<?php echo $value; ?>' />
-	<p><i><?php printf( esc_attr__( 'Use %1$s to display the %2$s variable.', 'flying-bird' ), '%s', esc_attr__( 'Lieu', 'flying-bird' ) ); ?></i></p>
+	<p><i><?php printf( esc_attr__( 'Utiliser %1$s pour afficher la variable %2$s.', 'flying-bird' ), '%s', esc_attr__( 'Lieu', 'flying-bird' ) ); ?></i></p>
 	<?php
 }
 
@@ -950,7 +950,7 @@ function vsel_field_callback_71() {
 	$placeholder = '36';
 	?>
 	<label><input type='number' size='10' min='20' max='60' maxlength='3' name='vsel-setting-71' placeholder='<?php echo $placeholder; ?>' value='<?php echo $value; ?>' /> <?php printf( esc_attr__( 'Valeur par défaut : %s.', 'flying-bird' ), '36' ); ?></label>
-	<p><i><?php esc_attr_e( 'This is the width of the Event Meta section.', 'flying-bird' ); ?></i></p>
+	<p><i><?php esc_attr_e( 'Taille de la section Meta des évènements.', 'flying-bird' ); ?></i></p>
 	<?php
 }
 
@@ -958,18 +958,18 @@ function vsel_field_callback_72() {
 	$value = esc_attr( get_option( 'vsel-setting-72' ) );
  	?>
 	<select id='vsel-setting-72' name='vsel-setting-72'>
-		<option value='left'<?php echo ($value == 'left') ? 'selected' : ''; ?>><?php esc_attr_e( 'Align Left', 'flying-bird' ); ?></option>
-		<option value='right'<?php echo ($value == 'right') ? 'selected' : ''; ?>><?php esc_attr_e( 'Align Right', 'flying-bird' ); ?></option>
+		<option value='left'<?php echo ($value == 'left') ? 'selected' : ''; ?>><?php esc_attr_e( 'Alignement : gauche', 'flying-bird' ); ?></option>
+		<option value='right'<?php echo ($value == 'right') ? 'selected' : ''; ?>><?php esc_attr_e( 'Alignement : droit', 'flying-bird' ); ?></option>
 	</select>
 	<?php
-	printf( esc_attr__( 'Valeur par défaut : %s.', 'flying-bird' ), esc_attr__( 'Align Left', 'flying-bird' ) );
+	printf( esc_attr__( 'Valeur par défaut : %s.', 'flying-bird' ), esc_attr__( 'Alignement : gauche', 'flying-bird' ) );
 }
 
 function vsel_field_callback_74() {
 	$value = esc_attr( get_option( 'vsel-setting-74' ) );
 	?>
 	<input type='hidden' name='vsel-setting-74' value='no'>
-	<label><input type='checkbox' name='vsel-setting-74' <?php checked( $value, 'yes' ); ?> value='yes'> <?php esc_attr_e( 'Show a date icon instead of a label.', 'flying-bird' ); ?></label>
+	<label><input type='checkbox' name='vsel-setting-74' <?php checked( $value, 'yes' ); ?> value='yes'> <?php esc_attr_e( 'Afficher une icône de date plutôt qu\'une étiquette.', 'flying-bird' ); ?></label>
 	<?php
 }
 
@@ -977,8 +977,8 @@ function vsel_field_callback_75() {
 	$value = esc_attr( get_option( 'vsel-setting-75' ) );
 	?>
 	<input type='hidden' name='vsel-setting-75' value='no'>
-	<label><input type='checkbox' name='vsel-setting-75' <?php checked( $value, 'yes' ); ?> value='yes'> <?php esc_attr_e( 'Combine start date and end date in one label.', 'flying-bird' ); ?></label>
-	<p><i><?php esc_attr_e( 'This does not affect the date icons.', 'flying-bird' ); ?></i></p>
+	<label><input type='checkbox' name='vsel-setting-75' <?php checked( $value, 'yes' ); ?> value='yes'> <?php esc_attr_e( 'Combine la date de début ainsi que la date de fin dans une seule étiquette.', 'flying-bird' ); ?></label>
+	<p><i><?php esc_attr_e( 'Cela n\'affecte pas les icônes de date.', 'flying-bird' ); ?></i></p>
 	<?php
 }
 
@@ -986,8 +986,8 @@ function vsel_field_callback_73() {
 	$value = esc_attr( get_option( 'vsel-setting-73' ) );
 	?>
 	<input type='hidden' name='vsel-setting-73' value='no'>
-	<label><input type='checkbox' name='vsel-setting-73' <?php checked( $value, 'yes' ); ?> value='yes'> <?php esc_attr_e( 'Link to the category page.', 'flying-bird' ); ?></label>
-	<p><i><?php printf( esc_attr__( 'The %s page is not generated by Flying Bird. Events are not ordered by event date.', 'flying-bird' ), esc_attr__( 'Catégorie de l\'évènement', 'flying-bird' ) ); ?></i></p>
+	<label><input type='checkbox' name='vsel-setting-73' <?php checked( $value, 'yes' ); ?> value='yes'> <?php esc_attr_e( 'Lien vers la page des catégories.', 'flying-bird' ); ?></label>
+	<p><i><?php printf( esc_attr__( 'La page %s n\'est pas générée par Flying Bird. Les événements ne sont pas classés par date d\'événement.', 'flying-bird' ), esc_attr__( 'Catégorie de l\'évènement', 'flying-bird' ) ); ?></i></p>
 	<?php
 }
 
@@ -1044,7 +1044,7 @@ function vsel_field_callback_81() {
 	$value = esc_attr( get_option( 'vsel-setting-81' ) );
 	?>
 	<input type='text' size='40' name='vsel-setting-81' placeholder='<?php echo $placeholder; ?>' value='<?php echo $value; ?>' />
-	<p><i><?php printf( esc_attr__( 'Use %1$s to display the %2$s variable.', 'flying-bird' ), '%s', esc_attr__( 'Date', 'flying-bird' ) ); ?></i></p>
+	<p><i><?php printf( esc_attr__( 'Utiliser %1$s pour afficher la variable %2$s.', 'flying-bird' ), '%s', esc_attr__( 'Date', 'flying-bird' ) ); ?></i></p>
 	<?php
 }
 
@@ -1053,7 +1053,7 @@ function vsel_field_callback_82() {
 	$value = esc_attr( get_option( 'vsel-setting-82' ) );
 	?>
 	<input type='text' size='40' name='vsel-setting-82' placeholder='<?php echo $placeholder; ?>' value='<?php echo $value; ?>' />
-	<p><i><?php printf( esc_attr__( 'Use %1$s to display the %2$s variable.', 'flying-bird' ), '%s', esc_attr__( 'Date', 'flying-bird' ) ); ?></i></p>
+	<p><i><?php printf( esc_attr__( 'Utiliser %1$s pour afficher la variable %2$s.', 'flying-bird' ), '%s', esc_attr__( 'Date', 'flying-bird' ) ); ?></i></p>
 	<?php
 }
 
@@ -1062,7 +1062,7 @@ function vsel_field_callback_83() {
 	$value = esc_attr( get_option( 'vsel-setting-83' ) );
 	?>
 	<input type='text' size='40' name='vsel-setting-83' placeholder='<?php echo $placeholder; ?>' value='<?php echo $value; ?>' />
-	<p><i><?php printf( esc_attr__( 'Use %1$s to display the %2$s variable.', 'flying-bird' ), '%s', esc_attr__( 'Date de départ', 'flying-bird' ) ); ?></i></p>
+	<p><i><?php printf( esc_attr__( 'Utiliser %1$s pour afficher la variable %2$s.', 'flying-bird' ), '%s', esc_attr__( 'Date de départ', 'flying-bird' ) ); ?></i></p>
 	<?php
 }
 
@@ -1071,7 +1071,7 @@ function vsel_field_callback_84() {
 	$value = esc_attr( get_option( 'vsel-setting-84' ) );
 	?>
 	<input type='text' size='40' name='vsel-setting-84' placeholder='<?php echo $placeholder; ?>' value='<?php echo $value; ?>' />
-	<p><i><?php printf( esc_attr__( 'Use %1$s to display the %2$s variable.', 'flying-bird' ), '%s', esc_attr__( 'Date de fin', 'flying-bird' ) ); ?></i></p>
+	<p><i><?php printf( esc_attr__( 'Utiliser %1$s pour afficher la variable %2$s.', 'flying-bird' ), '%s', esc_attr__( 'Date de fin', 'flying-bird' ) ); ?></i></p>
 	<?php
 }
 
@@ -1080,7 +1080,7 @@ function vsel_field_callback_85() {
 	$value = esc_attr( get_option( 'vsel-setting-85' ) );
 	?>
 	<input type='text' size='40' name='vsel-setting-85' placeholder='<?php echo $placeholder; ?>' value='<?php echo $value; ?>' />
-	<p><i><?php printf( esc_attr__( 'Use %1$s to display the %2$s variable.', 'flying-bird' ), '%s', esc_attr__( 'Heure', 'flying-bird' ) ); ?></i></p>
+	<p><i><?php printf( esc_attr__( 'Utiliser %1$s pour afficher la variable %2$s.', 'flying-bird' ), '%s', esc_attr__( 'Heure', 'flying-bird' ) ); ?></i></p>
 	<?php
 }
 
@@ -1114,10 +1114,10 @@ function vsel_options_page() {
 		}
 		submit_button(); ?>
 	</form>
-	<p><?php esc_attr_e( 'Davantage de personnalisations peuvent être effectuées en utilisant des attributs (shortcode).', 'flying-bird' ); ?></p>
+	<p><?php esc_attr_e( 'Davantage de personnalisations peuvent être effectuées en utilisant les attributs (shortcode).', 'flying-bird' ); ?></p>
 	<?php $link_label = __( 'cliquez-ici', 'flying-bird' ); ?>
-	<?php $link_wp = '<a href="https://github.com/BeruNoir/flying-bird" target="_blank">'.$link_label.'</a>'; ?>
-	<p><?php printf( esc_attr__( 'For info, available attributes and support %s.', 'flying-bird' ), $link_wp ); ?></p>
+	<?php $link_wp = '<a href="https://github.com/BeruNoir/flying-bird#shortcode-attributes" target="_blank">'.$link_label.'</a>'; ?>
+	<p><?php printf( esc_attr__( 'Pour information la liste des attributs est en ligne, %s.', 'flying-bird' ), $link_wp ); ?></p>
 </div>
 <?php
 }

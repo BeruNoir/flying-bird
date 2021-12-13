@@ -1,7 +1,7 @@
 # Flying bird
 * Fork of Very Simple Event List
 * Contributors: Guido07111975, BeruNoir
-* Version: 14
+* Version: 14.1
 * License: GNU General Public License v3
 * License URI: https://www.gnu.org/licenses/gpl-3.0.html
 * Requires PHP: 7.1

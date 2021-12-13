@@ -1,26 +1,19 @@
 <?php
 /*
  * Plugin Name: Flying Bird
- * Description: This is a lightweight plugin to create a customized event list. Add the shortcode on a page or use the widget to display your events.
- * Version: 14
- * Author: Guido, BeruNoir
- * Author URI: https://www.guido.site
+ * Description: Plugin Wordpress permettant de générer des évènements (basé sur Very Simple Event List).
+ * Version: 14.1
+ * Author: Guido & BeruNoir
+ * Author URI: https://github.com/BeruNoir/flying-bird
  * License: GNU General Public License v3
  * License URI: https://www.gnu.org/licenses/gpl-3.0.html
  * Text Domain: flying-bird
- * Domain Path: /translation
  */
 
 // disable direct access
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-
-// load plugin text domain
-//function vsel_init() {
-//	load_plugin_textdomain( 'flying-bird', false, dirname( plugin_basename( __FILE__ ) ) . '/translation' );
-//}
-//add_action('plugins_loaded', 'vsel_init');
 
 // enqueue css script
 function vsel_frontend_scripts() {
@@ -190,7 +183,7 @@ register_activation_hook( __FILE__, 'vsel_activation_hook' );
 function vsel_metabox() {
 	add_meta_box(
 		'vsel-event-metabox',
-		esc_attr__( 'Meta des évènements', 'flying-bird' ),
+		esc_attr__( 'Informations de l\'évènement', 'flying-bird' ),
 		'vsel_metabox_callback',
 		'event',
 		'normal',
@@ -235,25 +228,25 @@ function vsel_metabox_callback( $post ) {
 		<p><label for="vsel-end-date"><?php esc_attr_e( 'Date', 'flying-bird' ); ?></label>
 		<input class="widefat" id="vsel-end-date" type="text" name="vsel-end-date" required maxlength="10" placeholder="<?php esc_attr_e( 'Utiliser le datepicker', 'flying-bird' ); ?>" value="<?php echo wp_date( $date_format, esc_attr( $end_date ), $utc_time_zone ); ?>" /></p>
 	<?php } else { ?>
-		<p><label for="vsel-start-date"><?php esc_attr_e( 'Start date', 'flying-bird' ); ?></label>
+		<p><label for="vsel-start-date"><?php esc_attr_e( 'Date de départ', 'flying-bird' ); ?></label>
 		<input class="widefat" id="vsel-start-date" type="text" name="vsel-start-date" required maxlength="10" placeholder="<?php esc_attr_e( 'Utiliser le datepicker', 'flying-bird' ); ?>" value="<?php echo wp_date( $date_format, esc_attr( $start_date ), $utc_time_zone ); ?>" /></p>
-		<p><label for="vsel-end-date"><?php esc_attr_e( 'End date', 'flying-bird' ); ?></label>
+		<p><label for="vsel-end-date"><?php esc_attr_e( 'Date de fin', 'flying-bird' ); ?></label>
 		<input class="widefat" id="vsel-end-date" type="text" name="vsel-end-date" required maxlength="10" placeholder="<?php esc_attr_e( 'Utiliser le datepicker', 'flying-bird' ); ?>" value="<?php echo wp_date( $date_format, esc_attr( $end_date ), $utc_time_zone ); ?>" /></p>
 	<?php } ?>
-	<p><label for="vsel-time"><?php esc_attr_e( 'Time', 'flying-bird' ); ?></label>
+	<p><label for="vsel-time"><?php esc_attr_e( 'Heure', 'flying-bird' ); ?></label>
 	<input class="widefat" id="vsel-time" type="text" name="vsel-time" placeholder="<?php esc_attr_e( 'Exemple : 16:00 - 18:00', 'flying-bird' ); ?>" value="<?php echo esc_attr( $time ); ?>" /></p>
-	<p><label for="vsel-location"><?php esc_attr_e( 'Location', 'flying-bird' ); ?></label>
+	<p><label for="vsel-location"><?php esc_attr_e( 'Lieu', 'flying-bird' ); ?></label>
 	<input class="widefat" id="vsel-location" type="text" name="vsel-location" placeholder="<?php esc_attr_e( 'Exemple : Dijon', 'flying-bird' ); ?>" value="<?php echo esc_attr( $location ); ?>" /></p>
-	<p><label for="vsel-link"><?php esc_attr_e( 'Link to more info', 'flying-bird' ); ?></label>
+	<p><label for="vsel-link"><?php esc_attr_e( 'Lien pour plus d\'informations', 'flying-bird' ); ?></label>
 	<input class="widefat" id="vsel-link" type="text" name="vsel-link" placeholder="<?php esc_attr_e( 'Exemple : www.wordpress.org', 'flying-bird' ); ?>" value="<?php echo esc_url( $link ); ?>" /></p>
-	<p><label for="vsel-link-label"><?php esc_attr_e( 'Link label', 'flying-bird' ); ?></label>
+	<p><label for="vsel-link-label"><?php esc_attr_e( 'Nom du lien', 'flying-bird' ); ?></label>
 	<input class="widefat" id="vsel-link-label" type="text" name="vsel-link-label" placeholder="<?php esc_attr_e( 'Exemple : Plus d\'infos', 'flying-bird' ); ?>" value="<?php echo esc_attr( $link_label ); ?>" /></p>
 	<p><input class="checkbox" id="vsel-link-target" type="checkbox" name="vsel-link-target" value="yes" <?php checked( $link_target, 'yes' ); ?> />
-	<label for="vsel-link-target"><?php esc_attr_e('Open link in new window', 'flying-bird'); ?></label></p>
+	<label for="vsel-link-target"><?php esc_attr_e('Ouvrir le lien dans une nouvelle fenêtre', 'flying-bird'); ?></label></p>
 	<p><input class="checkbox" id="vsel-link-title" type="checkbox" name="vsel-link-title" value="yes" <?php checked( $link_title, 'yes' ); ?> />
-	<label for="vsel-link-title"><?php esc_attr_e('Redirect event title to the more info link', 'flying-bird'); ?></label></p>
-	<p><label for="vsel-summary"><?php esc_attr_e( 'Custom summary', 'flying-bird' ); ?></label>
-	<textarea id="vsel-summary" name="vsel-summary" class="large-text" rows="6" placeholder="<?php esc_attr_e( 'Ceci remplace le sommaire défini par défaut', 'flying-bird' ); ?>"><?php echo wp_kses_post( $summary); ?></textarea></p>
+	<label for="vsel-link-title"><?php esc_attr_e('Rediriger le titre de l\'événement vers le lien plus d\'informations', 'flying-bird'); ?></label></p>
+	<p><label for="vsel-summary"><?php esc_attr_e( 'Résumé personnalisé', 'flying-bird' ); ?></label>
+	<textarea id="vsel-summary" name="vsel-summary" class="large-text" rows="6" placeholder="<?php esc_attr_e( 'Résumé simplifié de l\'évènement', 'flying-bird' ); ?>"><?php echo wp_kses_post( $summary); ?></textarea></p>
 	<?php
 }
 

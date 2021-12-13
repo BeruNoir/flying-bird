@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class vsel_widget extends WP_Widget {
 	// constructor
 	public function __construct() {
-		$widget_ops = array( 'classname' => 'vsel-widget', 'description' => esc_attr__('Display your events in a widget.', 'flying-bird') );
+		$widget_ops = array( 'classname' => 'vsel-widget', 'description' => esc_attr__('Affichez vos événements dans un widget.', 'flying-bird') );
 		parent::__construct( 'vsel_widget', esc_attr__('Flying Bird', 'flying-bird'), $widget_ops );
 	}
 
@@ -31,40 +31,40 @@ class vsel_widget extends WP_Widget {
 		// widget input fields
 		?>
 		<p>
-		<label for="<?php echo $this->get_field_id( 'vsel_title' ); ?>"><?php esc_attr_e('Title', 'flying-bird'); ?>:</label>
+		<label for="<?php echo $this->get_field_id( 'vsel_title' ); ?>"><?php esc_attr_e('Titre', 'flying-bird'); ?>:</label>
 		<input class="widefat" id="<?php echo $this->get_field_id( 'vsel_title' ); ?>" name="<?php echo $this->get_field_name( 'vsel_title' ); ?>" type="text" value="<?php echo esc_attr( $vsel_title ); ?>">
  		</p>
 		<p>
-		<label for="<?php echo $this->get_field_id('vsel_text'); ?>"><?php esc_attr_e('Text above event list', 'flying-bird'); ?>:</label>
+		<label for="<?php echo $this->get_field_id('vsel_text'); ?>"><?php esc_attr_e('Texte au-dessus de la liste des événements', 'flying-bird'); ?>:</label>
 		<textarea class="widefat monospace" rows="6" cols="20" id="<?php echo $this->get_field_id('vsel_text'); ?>" name="<?php echo $this->get_field_name('vsel_text'); ?>"><?php echo wp_kses_post( $vsel_text ); ?></textarea>
 		</p>
 		<p>
-		<label for="<?php echo $this->get_field_id( 'vsel_shortcode' ); ?>"><?php esc_attr_e( 'List', 'flying-bird' ); ?>:</label>
+		<label for="<?php echo $this->get_field_id( 'vsel_shortcode' ); ?>"><?php esc_attr_e( 'Liste', 'flying-bird' ); ?>:</label>
 		<select class="widefat" id="<?php echo $this->get_field_id( 'vsel_shortcode' ); ?>" name="<?php echo $this->get_field_name( 'vsel_shortcode' ); ?>">
 			<option value='upcoming'<?php echo ($vsel_shortcode == 'upcoming')?'selected':''; ?>><?php esc_attr_e( 'Upcoming events', 'flying-bird' ); ?></option>
 			<option value='future'<?php echo ($vsel_shortcode == 'future')?'selected':''; ?>><?php esc_attr_e( 'Future events', 'flying-bird' ); ?></option>
 			<option value='current'<?php echo ($vsel_shortcode == 'current')?'selected':''; ?>><?php esc_attr_e( 'Current events', 'flying-bird' ); ?></option>
 			<option value='past'<?php echo ($vsel_shortcode == 'past')?'selected':''; ?>><?php esc_attr_e( 'Past events', 'flying-bird' ); ?></option>
-			<option value='all'<?php echo ($vsel_shortcode == 'all')?'selected':''; ?>><?php esc_attr_e( 'All events', 'flying-bird' ); ?></option>
+			<option value='all'<?php echo ($vsel_shortcode == 'all')?'selected':''; ?>><?php esc_attr_e( 'Tous les évènements', 'flying-bird' ); ?></option>
 		</select>
 		</p>
 		<p>
-		<label for="<?php echo $this->get_field_id( 'vsel_attributes' ); ?>"><?php esc_attr_e('Attributes', 'flying-bird'); ?>:</label>
+		<label for="<?php echo $this->get_field_id( 'vsel_attributes' ); ?>"><?php esc_attr_e('Attributs', 'flying-bird'); ?>:</label>
 		<input class="widefat" id="<?php echo $this->get_field_id( 'vsel_attributes' ); ?>" name="<?php echo $this->get_field_name( 'vsel_attributes' ); ?>" type="text" placeholder="<?php esc_attr_e( 'Example: posts_per_page=&quot;2&quot;', 'flying-bird' ); ?>" value="<?php echo esc_attr( $vsel_attributes ); ?>">
  		</p>
 		<p>
-		<label for="<?php echo $this->get_field_id( 'vsel_all_events_link' ); ?>"><?php esc_attr_e('Link to all events', 'flying-bird'); ?>:</label>
+		<label for="<?php echo $this->get_field_id( 'vsel_all_events_link' ); ?>"><?php esc_attr_e('Lien vers tous les événements', 'flying-bird'); ?>:</label>
 		<input class="widefat" id="<?php echo $this->get_field_id( 'vsel_all_events_link' ); ?>" name="<?php echo $this->get_field_name( 'vsel_all_events_link' ); ?>" type="text" placeholder="<?php esc_attr_e( 'Example: www.your-domain.com/events', 'flying-bird' ); ?>" value="<?php echo esc_url( $vsel_all_events_link ); ?>">
  		</p>
 		<p>
-		<label for="<?php echo $this->get_field_id( 'vsel_all_events_label' ); ?>"><?php esc_attr_e('Link label', 'flying-bird'); ?>:</label>
-		<input class="widefat" id="<?php echo $this->get_field_id( 'vsel_all_events_label' ); ?>" name="<?php echo $this->get_field_name( 'vsel_all_events_label' ); ?>" type="text" placeholder="<?php esc_attr_e( 'Example: All events', 'flying-bird' ); ?>" value="<?php echo esc_attr( $vsel_all_events_label ); ?>">
+		<label for="<?php echo $this->get_field_id( 'vsel_all_events_label' ); ?>"><?php esc_attr_e('Libellé du lien', 'flying-bird'); ?>:</label>
+		<input class="widefat" id="<?php echo $this->get_field_id( 'vsel_all_events_label' ); ?>" name="<?php echo $this->get_field_name( 'vsel_all_events_label' ); ?>" type="text" placeholder="<?php esc_attr_e( 'Example: Tous les évènements', 'flying-bird' ); ?>" value="<?php echo esc_attr( $vsel_all_events_label ); ?>">
  		</p>
-		<?php $link_label = __( 'click here', 'flying-bird' ); ?>
-		<?php $link_wp = '<a href="https://wordpress.org/plugins/flying-bird" target="_blank">'.$link_label.'</a>'; ?>
+		<?php $link_label = __( 'cliquez-ici', 'flying-bird' ); ?>
+		<?php $link_wp = '<a href="https://github.com/BeruNoir/flying-bird" target="_blank">'.$link_label.'</a>'; ?>
 		<?php $link_settings = '<a href="'.admin_url( 'options-general.php?page=vsel' ).'">'.$link_label.'</a>'; ?>
-		<p><?php printf( esc_attr__( 'For info, available attributes and support %s.', 'flying-bird' ), $link_wp ); ?></p>
-		<p><?php printf( esc_attr__( 'For plugin settings %s.', 'flying-bird' ), $link_settings ); ?></p>
+		<p><?php printf( esc_attr__( 'Pour info, attributs disponibles et support %s.', 'flying-bird' ), $link_wp ); ?></p>
+		<p><?php printf( esc_attr__( 'Pour les paramètres du plugin %s.', 'flying-bird' ), $link_settings ); ?></p>
 		<?php
 	}
 
@@ -86,7 +86,7 @@ class vsel_widget extends WP_Widget {
 	// display widget with event list in frontend
 	function widget( $args, $instance ) {
 		if ( empty( $instance['vsel_all_events_label'] ) ) {
-			$instance['vsel_all_events_label'] = __( 'All events', 'flying-bird' );
+			$instance['vsel_all_events_label'] = __( 'Tous les évènements', 'flying-bird' );
 		}
 
 		echo $args['before_widget'];

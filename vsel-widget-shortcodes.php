@@ -16,7 +16,7 @@ function vsel_widget_shortcode( $vsel_widget_atts ) {
 		'order' => 'asc',
 		'title_link' => '',
 		'featured_image' => '',
-		'no_events_text' => __('There are no upcoming events.', 'flying-bird')
+		'no_events_text' => __('Il n\'y a aucun évènement à venir.', 'flying-bird')
 	), $vsel_widget_atts );
 
 	// initialize output
@@ -84,7 +84,7 @@ function vsel_widget_future_events_shortcode( $vsel_widget_atts ) {
 		'title_link' => '',
 		'featured_image' => '',
 		'pagination' => '',
-		'no_events_text' => __('There are no future events.', 'flying-bird')
+		'no_events_text' => __('Il n\'y a pas d\'événements futurs.', 'flying-bird')
 	), $vsel_widget_atts );
 
 	// initialize output
@@ -151,7 +151,7 @@ function vsel_widget_current_events_shortcode( $vsel_widget_atts ) {
 		'order' => 'asc',
 		'title_link' => '',
 		'featured_image' => '',
-		'no_events_text' => __('There are no current events.', 'flying-bird')
+		'no_events_text' => __('Il n\'y a pas d\'événements en cours.', 'flying-bird')
 	), $vsel_widget_atts );
 
 	// initialize output
@@ -300,7 +300,7 @@ function vsel_widget_all_events_shortcode( $vsel_widget_atts ) {
 		'order' => 'desc',
 		'title_link' => '',
 		'featured_image' => '',
-		'no_events_text' => __('There are no events.', 'flying-bird')
+		'no_events_text' => __('Il n\'y a pas d\'événements.', 'flying-bird')
 	), $vsel_widget_atts );
 
 	// initialize output

@@ -17,7 +17,7 @@ function vsel_shortcode( $vsel_atts ) {
 		'title_link' => '',
 		'featured_image' => '',
 		'pagination' => '',
-		'no_events_text' => __('There are no upcoming events.', 'flying-bird')
+		'no_events_text' => __('Il n\'y a aucun évènement à venir.', 'flying-bird')
 	), $vsel_atts );
 
 	// initialize output
@@ -71,8 +71,8 @@ function vsel_shortcode( $vsel_atts ) {
 				if ($vsel_atts['pagination'] != 'false') :
 					if ( $page_pagination_hide != 'yes' ) :
 						$output .= '<div class="vsel-nav">';
-							$output .= get_next_posts_link(  __( 'Next &raquo;', 'flying-bird' ), $vsel_query->max_num_pages );
-							$output .= get_previous_posts_link( __( '&laquo; Previous', 'flying-bird' ) );
+							$output .= get_next_posts_link(  __( 'Suivant &raquo;', 'flying-bird' ), $vsel_query->max_num_pages );
+							$output .= get_previous_posts_link( __( '&laquo; Précédent', 'flying-bird' ) );
 						$output .= '</div>';
 					endif;
 				endif;
@@ -105,7 +105,7 @@ function vsel_future_events_shortcode( $vsel_atts ) {
 		'title_link' => '',
 		'featured_image' => '',
 		'pagination' => '',
-		'no_events_text' => __('There are no future events.', 'flying-bird')
+		'no_events_text' => __('Il n\'y a aucun évènement à venir.', 'flying-bird')
 	), $vsel_atts );
 
 	// initialize output
@@ -159,8 +159,8 @@ function vsel_future_events_shortcode( $vsel_atts ) {
 				if ($vsel_atts['pagination'] != 'false') :
 					if ( $page_pagination_hide != 'yes' ) :
 						$output .= '<div class="vsel-nav">';
-							$output .= get_next_posts_link(  __( 'Next &raquo;', 'flying-bird' ), $vsel_query->max_num_pages );
-							$output .= get_previous_posts_link( __( '&laquo; Previous', 'flying-bird' ) );
+							$output .= get_next_posts_link(  __( 'Suivant &raquo;', 'flying-bird' ), $vsel_query->max_num_pages );
+							$output .= get_previous_posts_link( __( '&laquo; Précédent', 'flying-bird' ) );
 						$output .= '</div>';
 					endif;
 				endif;
@@ -262,8 +262,8 @@ function vsel_current_events_shortcode( $vsel_atts ) {
 				if ($vsel_atts['pagination'] != 'false') :
 					if ( $page_pagination_hide != 'yes' ) :
 						$output .= '<div class="vsel-nav">';
-							$output .= get_next_posts_link(  __( 'Next &raquo;', 'flying-bird' ), $vsel_current_query->max_num_pages );
-							$output .= get_previous_posts_link( __( '&laquo; Previous', 'flying-bird' ) );
+							$output .= get_next_posts_link(  __( 'Suivant &raquo;', 'flying-bird' ), $vsel_current_query->max_num_pages );
+							$output .= get_previous_posts_link( __( '&laquo; Précédent', 'flying-bird' ) );
 						$output .= '</div>';
 					endif;
 				endif;
@@ -350,8 +350,8 @@ function vsel_past_events_shortcode( $vsel_atts ) {
 				if ($vsel_atts['pagination'] != 'false') :
 					if ( $page_pagination_hide != 'yes' ) :
 						$output .= '<div class="vsel-nav">';
-							$output .= get_next_posts_link(  __( 'Next &raquo;', 'flying-bird' ), $vsel_past_query->max_num_pages );
-							$output .= get_previous_posts_link( __( '&laquo; Previous', 'flying-bird' ) );
+							$output .= get_next_posts_link(  __( 'Suivant &raquo;', 'flying-bird' ), $vsel_past_query->max_num_pages );
+							$output .= get_previous_posts_link( __( '&laquo; Précédent', 'flying-bird' ) );
 						$output .= '</div>';
 					endif;
 				endif;
@@ -427,8 +427,8 @@ function vsel_all_events_shortcode( $vsel_atts ) {
 				if ($vsel_atts['pagination'] != 'false') :
 					if ( $page_pagination_hide != 'yes' ) :
 						$output .= '<div class="vsel-nav">';
-							$output .= get_next_posts_link(  __( 'Next &raquo;', 'flying-bird' ), $vsel_all_query->max_num_pages );
-							$output .= get_previous_posts_link( __( '&laquo; Previous', 'flying-bird' ) );
+							$output .= get_next_posts_link(  __( 'Suivant &raquo;', 'flying-bird' ), $vsel_all_query->max_num_pages );
+							$output .= get_previous_posts_link( __( '&laquo; Précédent', 'flying-bird' ) );
 						$output .= '</div>';
 					endif;
 				endif;
