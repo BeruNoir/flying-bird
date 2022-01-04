@@ -1,83 +1,78 @@
 # Flying bird
-* Fork of Very Simple Event List
-* Contributors: Guido07111975, BeruNoir
+* Fork de Very Simple Event List
+* Contributeurs·rices: Guido07111975, BeruNoir
 * Version: 14.1
-* License: GNU General Public License v3
-* License URI: https://www.gnu.org/licenses/gpl-3.0.html
-* Requires PHP: 7.1
-* Requires at least: 5.3
-* Tested up to: 5.8
-* Stable tag: trunk
+* Licence: GNU General Public License v3
+* URL Licence: https://www.gnu.org/licenses/gpl-3.0.html
+* Obligation PHP: 7.1
+* Version minimum: 5.3
+* Testé pour la version: 5.8
 * Tags: simple, event, events, event list, event manager
 
 
-This is a lightweight plugin to create a customized event list. Add the shortcode on a page or use the widget to display your events.
-
-
 ## Description
-This is a lightweight plugin to create a customized event list.
-Add the shortcode on a page or use the widget to display your events.
+Ce plugin Wordpress vous permet de générer des évènements dans la plus grande des simplicités. 
+Il est issu d'une copie de Very Simple Event List, je l'ai adapté pour des raisons personnelles. 
 
-You can personalize your event list via the settingspage or by adding attributes to the shortcode or the widget.
+Celui-ci est donc à présent entièrement traduit en français.
+Vous pouvez personnaliser votre liste des événements par le biais de la page du paramétrage ou en ajoutant des attributs aux shortcodes ou widgets.
 
-## How to use
-After installation go to menu item "Events" and start adding your events.
+## Comment l'utiliser ?
+Après installation, allez à l'élément de menu "Événements" et commencez à ajouter vos événements.
 
-Create a page and:
+Créez une page puis :
 
-* Add shortcode `[vsel]` to display upcoming events (including today)
-* Add shortcode `[vsel-future-events]` to display future events (without today)
-* Add shortcode `[vsel-current-events]` to display current events
-* Add shortcode `[vsel-past-events]` to display past events
-* Add shortcode `[vsel-all-events]` to display all events
+* Ajoutez un shortcode `[vsel]` pour afficher les événements à venir (y compris aujourd'hui)
+* Ajoutez un shortcode `[vsel-future-events]` pour afficher les événements futurs (sans aujourd'hui)
+* Ajoutez un shortcode `[vsel-current-events]` pour afficher les événements actuels
+* Ajoutez un shortcode `[vsel-past-events]` pour afficher les événements passés
+* Ajoutez un shortcode `[vsel-all-events]` pour afficher tous les événements
 
-Or go to Appearance > Widgets and use the widget to display your events.
+Ou allez dans Apparence > Widgets et utilisez le widget pour afficher vos événements.
 
-## Settings page
-You can personalize your event list via the settingspage. This page can be found via Settings > VSEL.
+## Page de paramétrage
+Vous pouvez personnaliser votre liste d'événements via la page du paramétrage. Cette page est accessible via Paramètres > Flying Bird.
 
-Several settings can be overridden when using the relevant (shortcode) attributes below.
+Plusieurs paramètres peuvent être remplacés lors de l'utilisation des attributs (shortcode) ci-dessous.
 
-This can be useful when having multiple event lists on your website.
+Cela peut être utile lorsque vous avez plusieurs listes d'événements sur votre site Wordpress.
 
-##  Shortcode attributes
-You can also personalize your event list by adding attributes to the 4 shortcodes mentioned above.
+##  Attributs pour vos shortcodes
+Vous pouvez également personnaliser votre liste d'événements en ajoutant des attributs aux 5 shortcodes mentionnés ci-dessus.
 
-* Change the number of events per page: `posts_per_page="5"`
-* Pass over one or multiple events: `offset="1"`
-* Change date format: `date_format="j F Y"`
-* Display events from a certain category: `event_cat="your-category-slug"`
-* Display events from multiple categories: `event_cat="your-category-slug-1, your-category-slug-2"`
-* Change order of the upcoming and current events list: `order="desc"`
-* Change order of the past and all events list: `order="asc"`
-* Change text if there are no events: `no_events_text="your text here"`
-* Change CSS class of the event list: `class="your-class-here"`
-* Disable event title link: `title_link="false"`
-* Disable featured image: `featured_image="false"`
-* Disable pagination: `pagination="false"`
+* Modifier le nombre d'événements par page : `posts_per_page="5"`
+* Passer sur un ou plusieurs événements : `offset="1"`
+* Changer le format de la date : `date_format="j F Y"`
+* Afficher les événements d'une certaine catégorie : `event_cat="your-category-slug"`
+* Afficher les événements de plusieurs catégories : `event_cat="your-category-slug-1, your-category-slug-2"`
+* Modifier l'ordre de la liste des événements à venir et en cours : `order="desc"`
+* Modifier l'ordre du passé et de la liste de tous les événements : `order="asc"`
+* Changer le texte s'il n'y a pas d'événements : `no_events_text="votre texte ici"`
+* Changer la classe CSS de la liste des événements : `class="your-class-here"`
+* Désactiver le lien sur le titre de l'événement : `title_link="false"`
+* Désactiver l'image mise en avant : `featured_image="false"`
+* Désactiver la pagination : `pagination="false"`
 
-About the offset attribute: pagination is being disabled when using offset.
+Exemples :
 
-Examples:
+* Un attribut : `[vsel posts_per_page="5"]`
+* Un attribut : `[vsel-past-events event_cat="your-category-slug"]`
+* Plusieurs attributs : `[vsel posts_per_page="5" event_cat="your-category-slug" class="your-class-here"]`
 
-* One attribute: `[vsel posts_per_page="5"]`
-* One attribute: `[vsel-past-events event_cat="your-category-slug"]`
-* Multiple attributes: `[vsel posts_per_page="5" event_cat="your-category-slug" class="your-class-here"]`
+##  Attributs pour widget
+Les widgets vont prendre en charge les mêmes attributs.
 
-##  Widget attributes
-The widget supports the same attributes. Don't add the main shortcode tag or the brackets.
+Exemples :
 
-Examples:
+* Un attribut : `posts_per_page="5"`
+* Plusieurs attributs : `posts_per_page="5" event_cat="your-category-slug" class="your-class-here"`
 
-* One attribute: `posts_per_page="5"`
-* Multiple attributes: `posts_per_page="5" event_cat="your-category-slug" class="your-class-here"`
+##  Date des évènements
+SettingsPage contient un paramètre permettant d'ajouter des événements à une date unique, plutôt qu'une date de début et une date de fin.
 
-##  Event dates
-Settingspage contains a setting that makes it possible to add events with one date, instead of start date and end date.
+Cela n'affecte pas les événements existants. Vous pouvez toujours revenir au format précédent à nouveau.
 
-This does not affect existing events. You can always turn back to previous format again.
-
-But when resaving an existing event that has different dates, start date will be overridden by end date.
+Mais lors de la redémarrage d'un événement existant qui a des dates différentes, la date de début sera remplacée par la date de fin.
 
 ##  Featured image
 WordPress creates duplicate images in different sizes upon upload. These sizes can be set via Settings > Media.
@@ -270,5 +265,5 @@ Please open a topic in plugin forum.
 
 
 ##  Changelog
-For all versions please check file changelog 
-(outdated after version 14, please read the commit list).
+Pour consulter toutes les versions, veuillez regarder le fichier changelog du dépôt.
+(log obsolète après la version 14 qui constitue le fork, pour la suite il suffit de consulter les commits).
